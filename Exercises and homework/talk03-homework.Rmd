@@ -12,7 +12,7 @@ output:
 knit: (
   function(inputFile, encoding) { 
 
-    pSubTitle <- '\u90ed\u7ae5\u6bc5-U201912600-talk03-homework'
+    pSubTitle <- 'talk03-homework'
 
     rmarkdown::render( 
       input       = inputFile, 
@@ -71,17 +71,11 @@ knit: (
 
 ```{r}
 ## 先生成前三列；
-dat1 <-
-data.frame( Age = c(25,31,23,52,76,49,26),
-            Height = c(177,163,190,179,163,183,164),
-            Weight = c(57,69,83,75,70,83,53)
-          )
-row.names(dat1) <- c("Alex","Lilly","Mark","Oliver","Martha","Lucas","Caroline")
+
 ## 再插入第四列
-Sex <- c("F","F","M","M","F","M","F")
-dat1 <- cbind(dat1,Sex)
+
 ## 显示最终结果
-dat1;
+
 ```
 
 ------------------------------------------------------------------------
@@ -92,13 +86,11 @@ dat1;
 
 ```{r}
 ## 生成 data.frame
-dat2 <-
-data.frame(Working = c("Yes","No","No","Yes","Yes","No","Yes"))
-row.names(dat2) <- c("Alex","Lilly","Mark","Oliver","Martha","Lucas","Caroline")
+
 ## 显示结果
-dat2
+
 ## 显示 Working 列的性质
-str(dat2)
+
 ```
 
 ------------------------------------------------------------------------
@@ -107,9 +99,6 @@ str(dat2)
 
 ```{r}
 ## 代码写这里，并运行；
-state.center
-dat3 <- data.frame(state.center)
-dat3
 ```
 
 ------------------------------------------------------------------------
@@ -118,9 +107,7 @@ dat3
 
 ```{r}
 ## 代码写这里，并运行；
-m1 <- matrix( 1:250, nrow = 50, byrow = T)
-rownames(m1) <- rownames(m1, do.NULL = F, prefix = "row_")
-m1
+
 ```
 
 ------------------------------------------------------------------------
@@ -135,12 +122,7 @@ m1
 
 ```{r}
 ## 代码写这里，并运行；
-str(VADeaths)
-VADeaths <- data.frame(VADeaths)
-Total = rowSums(VADeaths)
-VADeaths <- cbind(VADeaths,Total)
-VADeaths <- VADeaths[,c(5,1,2,3,4)]
-VADeaths
+
 ```
 
 ------------------------------------------------------------------------
@@ -155,12 +137,7 @@ VADeaths
 
 ```{r}
 ## 代码写这里，并运行；
-swiss
-s1 <- swiss[c(1:3,10:13),c("Examination","Education","Infant.Mortality")]
-s1["Sarine","Infant.Mortality"] <- NA
-Mean <- apply(s1,1,mean,na.rm = TRUE)
-s1 <- cbind(s1,Mean)
-s1
+
 ```
 
 ------------------------------------------------------------------------
@@ -175,21 +152,16 @@ s1
 
 ```{r}
 ## 代码写这里，并运行；
-Id <- LETTERS
-x <- seq(1,43,along.with=Id)
-y <- seq(-20,0,along.with=Id)
-ID <- data.frame(x,y)
-ID
+
 ```
 
 **问：** `seq`函数中的`along.with` 参数的意义是什么？请举例说明。
 
-答：将生成的向量作为已知向量元素的索引
+答：
 
 ```{r}
 ## 代码写这里，并运行；
-f1 <- seq(1,20,along.with = LETTERS)
-f1
+
 ```
 
 ------------------------------------------------------------------------
@@ -223,11 +195,7 @@ f1
 
 ```{r}
 ## 代码写这里，并运行；
-df1 <- data.frame("Age" = c(14,12,15,10))
-df2 <- data.frame("Sex" = c("F","M","M","F"),
-                  "Code" = c("a","b","c","d"))
-M <- head(cbind(df1,df2))
-M
+
 ```
 
 ------------------------------------------------------------------------
@@ -236,8 +204,7 @@ M
 
 ```{r}
 ## 代码写这里，并运行；
-M <- subset(M, select = -Code)
-M
+
 ```
 
 ------------------------------------------------------------------------
@@ -257,10 +224,7 @@ M
     ## 5. 增加一列，其长度是3，可以吗？
     cbind(df3, newcol = 1:3);
 
-答：2.可行
-    3.可行
-    4.可行
-    5.不可行，因为10不能被3整除
+答：
 
 ## 练习与作业2，`tibble`
 
@@ -314,12 +278,7 @@ tibble(
 
 ```{r}
 ## 代码写这里，并运行；
-df <- tibble(
-      x = runif(5),
-      y = rnorm(5)
-    )
-df[,c("x")]
-class(df[[2]])
+
 ```
 
 ------------------------------------------------------------------------
@@ -332,10 +291,8 @@ class(df[[2]])
 tb <- tibble( name = character(), age = integer(), salary = double() );
 
 ##增加三行随机数据；
-tb <- tibble(name = LETTERS[1:3],
-             age = runif(3,min = 20, max = 50),
-             salary = rnorm(3,mean = 5000,sd = 2000))
-tb
+
+
 ```
 
 ------------------------------------------------------------------------
@@ -352,7 +309,7 @@ tb
 
 问：为什么？tibble 循环的规则是什么？
 
-答：因为tibble仅限于长度为1或等长的循环，不能同时多次循环
+答：
 
 ------------------------------------------------------------------------
 
@@ -360,15 +317,7 @@ tb
 
 问：这个两个函数的用途是什么？请用 `iris` 这个系统自带变量举例说明。
 
-答：attach是将变量与对象名联系起来，便于直接获取数据
-    detach是取消attach的操作
-    
-```{r}
-head(iris, n = 3);
-attach(iris);
-head(Petal.Length, n = 5);
-detach(iris);
-```
+答：
 
 ------------------------------------------------------------------------
 
@@ -380,33 +329,24 @@ detach(iris);
 
 ```{r}
 ## 代码写这里，并运行；
-str(airquality)
-airquality <- tibble(airquality)
+
 ```
 
 ------------------------------------------------------------------------
 
 -   **问：`tibble::enframe`函数的用途是什么？请举例说明：**
 
-答：将向量转化为tibble形式
-
-```{r}
-c(a = 1, b = 2)
-tibble::enframe(c(a = 1, b = 2))
-```
+答：
 
 ------------------------------------------------------------------------
 
 -   **简述`tibble`相比`data.frame`的优势？并用实例展示**
 
-答：tibble是逐行输入的，因此可以直接引用已创建的变量来生成新变量，而data.frame不可以
+答：
 
 ```{r}
 ## 代码写这里，并运行；
-tibble( x = 1:10,
-        y = 2,
-        z = x ^ 2 + y
-        )
+
 ```
 
 ## 练习与作业3：IO
@@ -429,25 +369,7 @@ tibble( x = 1:10,
 
 ```{r}
 ## 用系统自带函数，并显示读取的内容；
-read.table("data/Table0.txt");
-read.table("data/Table1.txt");
-read.table("data/Table2.txt", fill = TRUE, header = TRUE);
-read.table("data/Table3.txt", fill = TRUE, header = TRUE);
-read.table("data/Table4.txt");
-read.table("data/Table5.txt");
-read.table("data/Table6.txt", fill = TRUE, header = TRUE);
-read.csv("data/states1.csv");
-read.csv("data/states2.csv", header = FALSE);
+
 ## 用readr 包的函数读取，并显示读取的内容；
-library(tidyverse);
-library(readr);
-read_table("data/Table0.txt");
-read_table("data/Table1.txt");
-read_table("data/Table2.txt");
-read_table("data/Table3.txt");
-read_table("data/Table4.txt");
-read_table("data/Table5.txt");
-read_table("data/Table6.txt");
-read_csv("data/states1.csv");
-read_csv("data/states2.csv");
+
 ```
