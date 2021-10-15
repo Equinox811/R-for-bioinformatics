@@ -1,0 +1,264 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{ctexart}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={talk01 练习与作业},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{talk01 练习与作业}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{ux7ec3ux4e60ux548cux4f5cux4e1aux8bf4ux660e}{%
+\subsection{练习和作业说明}\label{ux7ec3ux4e60ux548cux4f5cux4e1aux8bf4ux660e}}
+
+将相关代码填写入以 ```\{r\} ``` 标志的代码框中，运行并看到正确的结果；
+
+完成后，用工具栏里的``Knit''按键生成PDF文档；
+
+\textbf{将生成的PDF}改为：\textbf{\texttt{姓名-学号-talk01作业.pdf}}，并提交到老师指定的平台/钉群。
+
+\hypertarget{talk01-ux5185ux5bb9ux56deux987e}{%
+\subsection{talk01 内容回顾}\label{talk01-ux5185ux5bb9ux56deux987e}}
+
+\begin{itemize}
+\item
+  R背景介绍
+\item
+  几个简单示例
+
+  \begin{itemize}
+  \tightlist
+  \item
+    R流行度调查
+  \item
+    R job trends
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux7ec3ux4e60ux548cux4f5cux4e1aux8bf4ux660e-1}{%
+\subsection{练习和作业说明}\label{ux7ec3ux4e60ux548cux4f5cux4e1aux8bf4ux660e-1}}
+
+将相关代码填写入以 ```\{r\} ``` 标志的代码框中，运行并看到正确的结果；
+
+完成后，用工具栏里的\textbf{Knit}按键生成PDF文档；
+
+将得到的PDF文件\textbf{更名}为：\texttt{姓名-学号-talk\#\#作业.pdf}。
+
+将word文档提交到老师指定的平台/钉群。
+
+\hypertarget{ux7ec3ux4e60ux4f5cux4e1a1}{%
+\subsection{练习/作业1}\label{ux7ec3ux4e60ux4f5cux4e1a1}}
+
+安装 \texttt{R}和\texttt{RStudio}最新版；
+
+用\texttt{RStudio}打开本脚本，按提示操作安排相应的包；
+
+成功运行本脚本，并出输出作业；
+
+\hypertarget{ux7ec3ux4e60ux4f5cux4e1a2}{%
+\subsection{练习/作业2}\label{ux7ec3ux4e60ux4f5cux4e1a2}}
+
+重现talk01中的两个图。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  安装需要的包：
+\item
+  R 的流行性调查
+\end{enumerate}
+
+运行以下代码，得到R的流行性调查；
+
+注意输入文件：\texttt{chaper01\_preface\_scholarly\_impact\_2012.4.9.csv}
+的正确路径；
+
+注意理解每行代码的意义；
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{); }\FunctionTok{library}\NormalTok{(}\StringTok{"reshape2"}\NormalTok{);}
+
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"../data/talk01/chaper01\_preface\_scholarly\_impact\_2012.4.9.csv"}\NormalTok{);}
+
+\NormalTok{cols.subset }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Year"}\NormalTok{, }\StringTok{"JMP"}\NormalTok{,}\StringTok{"Minitab"}\NormalTok{,}\StringTok{"Stata"}\NormalTok{,}\StringTok{"Statistica"}\NormalTok{,}\StringTok{"Systat"}\NormalTok{,}\StringTok{"R"}\NormalTok{);}
+\NormalTok{Subset }\OtherTok{\textless{}{-}}\NormalTok{ dat[ , cols.subset];}
+\NormalTok{ScholarLong }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(Subset, }\AttributeTok{id.vars =} \StringTok{"Year"}\NormalTok{);}
+\FunctionTok{names}\NormalTok{(ScholarLong) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Year"}\NormalTok{,}\StringTok{"Software"}\NormalTok{, }\StringTok{"Hits"}\NormalTok{);}
+
+\NormalTok{plot1 }\OtherTok{\textless{}{-}} 
+  \FunctionTok{ggplot}\NormalTok{(ScholarLong, }\FunctionTok{aes}\NormalTok{(Year, Hits, }\AttributeTok{group=}\NormalTok{Software)) }\SpecialCharTok{+} \CommentTok{\#准备}
+    \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill=}\NormalTok{Software), }\AttributeTok{position=}\StringTok{"fill"}\NormalTok{, }\AttributeTok{method=}\StringTok{"loess"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#画图}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Market share"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#设置图标题}
+    \FunctionTok{scale\_x\_continuous}\NormalTok{(}\StringTok{"Year"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# 改变X轴标题}
+    \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"Google Scholar \%"}\NormalTok{, }\AttributeTok{labels =} \ConstantTok{NULL}\NormalTok{ ) }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.ticks =} \FunctionTok{element\_blank}\NormalTok{(),  }\AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{14}\NormalTok{)) }\SpecialCharTok{+} 
+    \FunctionTok{guides}\NormalTok{(}\AttributeTok{fill=}\FunctionTok{guide\_legend}\NormalTok{( }\AttributeTok{title =} \StringTok{"Software"}\NormalTok{,  }\AttributeTok{reverse =}\NormalTok{ F )) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{data =} \FunctionTok{data.frame}\NormalTok{( }\AttributeTok{Year =} \DecValTok{2011}\NormalTok{,  }\AttributeTok{Software =} \StringTok{"R"}\NormalTok{, }\AttributeTok{Hits =} \FloatTok{0.10}\NormalTok{ ),}
+              \FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ Software), }\AttributeTok{hjust =} \DecValTok{0}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{);}
+
+\NormalTok{plot1; }\DocumentationTok{\#\# 画图}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Stacking not well defined when not anchored on the axis
+\end{verbatim}
+
+\includegraphics{talk01-homework_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  R 的招聘趋势
+\end{enumerate}
+
+运行以下代码，得到R 的招聘趋势
+
+注意输入文件：\texttt{chaper01\_preface\_scholarly\_impact\_2012.4.9.csv}
+的正确路径；
+
+注意理解每行代码的意义；
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{); }\DocumentationTok{\#\# 主作图包}
+
+\DocumentationTok{\#\#2. {-}{-} 读取数据 {-}{-}}
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\AttributeTok{file =}\StringTok{"../data/talk01/chaper01\_preface\_indeed\_com\_stats\_2015.txt"}\NormalTok{, }
+                  \AttributeTok{header =}\NormalTok{ T, }\AttributeTok{as.is =}\NormalTok{ T);}
+\DocumentationTok{\#\#3. 处理数据}
+\NormalTok{dat}\SpecialCharTok{$}\NormalTok{date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{date); }\DocumentationTok{\#\# 把第一列改为日期}
+
+\CommentTok{\#根据job对software进行调整}
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{transform}\NormalTok{(dat, }\AttributeTok{software =} \FunctionTok{reorder}\NormalTok{(software, job)); }
+
+\NormalTok{plot2 }\OtherTok{\textless{}{-}}
+  \FunctionTok{ggplot}\NormalTok{( dat, }\FunctionTok{aes}\NormalTok{( date, job, }\AttributeTok{group =}\NormalTok{ software, }\AttributeTok{colour =}\NormalTok{ software) ) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{( }\AttributeTok{size =} \FloatTok{0.8}\NormalTok{  ) }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Job trends (data from indeed.com)"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#设置图标题}
+    \FunctionTok{xlab}\NormalTok{(}\StringTok{"Year"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"\%"}\NormalTok{) }\SpecialCharTok{+}
+    \CommentTok{\#改变字体大小;要放在theme\_grey()后面  }
+    \FunctionTok{theme}\NormalTok{( }\AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{14}\NormalTok{) ) }\SpecialCharTok{+} 
+    \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour=}\FunctionTok{guide\_legend}\NormalTok{( }\AttributeTok{title =} \StringTok{"Tool"}\NormalTok{,  }\AttributeTok{reverse =} \ConstantTok{TRUE}\NormalTok{ )) }\SpecialCharTok{+}
+    \FunctionTok{scale\_colour\_brewer}\NormalTok{(}\AttributeTok{palette=}\StringTok{"Set1"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#改变默认颜色}
+    \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{data =}\NormalTok{ dat[dat}\SpecialCharTok{$}\NormalTok{date }\SpecialCharTok{==} \StringTok{"2015{-}01{-}01"} \SpecialCharTok{\&}\NormalTok{ dat}\SpecialCharTok{$}\NormalTok{software }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"R"}\NormalTok{), ], }
+              \FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ software), }\AttributeTok{hjust =} \DecValTok{0}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{);}
+
+\NormalTok{plot2;}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{talk01-homework_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\end{document}
